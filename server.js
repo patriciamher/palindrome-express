@@ -5,7 +5,7 @@ const MongoClient = require('mongodb').MongoClient
 const port = 3500
 var db, collection;
 
-const url = "mongodb+srv://hernandezpatriciam:<password>@cluster0.pu5jnrf.mongodb.net/?retryWrites=true&w=majority";
+const url = "mongodb+srv://resilientcoders:resilientcoders@cluster0.pu5jnrf.mongodb.net/?retryWrites=true&w=majority";
 const dbName = "palindrome";
 
 app.listen(port, () => {
@@ -26,7 +26,9 @@ app.use(express.static('public'))
 app.get('/', (req, res) => {
   db.collection('words').find().toArray((err, result) => {
     if (err) return console.log(err)
-    res.render('index.ejs', {word: result})
+    res.render('index.ejs', {
+      word: result
+    })
   })
 })
 

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>Palindrome</title>
     
     <!-- css stylesheet -->
@@ -12,22 +13,22 @@
   </head>
   <body>
     <h1>Palindrome</h1>
-    <% for(let i = 0 ; i<word[i].length; i++) {%> 
-      <button data-id="<%word[i]._id%>"
-      class="removeBtn">X</button>
-      <p><%word[i].word %></p>
-      <p><%word[i].result %></p>
-    <% } %>
-    
+      
     <form action="/words" method="POST">
       <label for="word">Enter a Word: </label>
       <input type="text" id="string" placeholder="Word" name="word">
       <button id="submitBtn">Submit</button>
     </form>
-    
-    <% for(let i = 0 ; i<word[i].length; i++) {%> 
-      <p id="results"><%word[i].result%></p>
-    <% } %>
+
+    <ul class="words">
+      <% for(let i = 0; i <word.length; i++) {%>
+        <li class="word">
+          <span><%= word[i].word %></span>
+          <span><%= word[i].result %></span>
+          <button data-id="<%= word[i]._id %>"><i class="fa fa-trash" aria-hidden="true"></i></button>
+        </li>
+      <% } %>
+    </ul>
 
     <!-- javascript -->
     <script src="main.js"></script>
